@@ -1,0 +1,30 @@
+export const userDetails=[
+    {
+        id:1,
+        name:'tejas',
+        email:'tejas@gmail.com',
+        phoneNumber:1111111111,
+        city:'pune'
+    },
+    {
+        id:2,
+        name:'sagar',
+        email:'sagar@gmail.com',
+        phoneNumber:2222222222,
+        city:'baramati'
+    },
+    {
+        id:3,
+        name:'aafaque',
+        email:'aafaque@gmail.com',
+        phoneNumber:3333333333,
+        city:'pune'
+    },
+    {
+        id:4,
+        name:'sahil',
+        email:'sahil@gmail.com',
+        phoneNumber:4444444444,
+        city:'mumbai'
+    }
+]
