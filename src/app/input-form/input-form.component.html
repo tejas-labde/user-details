@@ -1,1 +1,28 @@
-<p>input-form works!</p>
+
+<div class="form-container">
+    <form [formGroup]="detailsForm" class="details-form"  (ngSubmit)="submitDetails(detailsForm)">
+        <h4 class="display-text">Please enter your details</h4>
+        <div class="entry-field">
+            <label for="userName">Name</label>
+            <input formControlName="name" class="input-field" name="userName" type="text" placeholder="Enter Name">
+        </div>
+
+       <div class="entry-field">
+        <label for="userEmail">Email</label>
+        <input formControlName="email" class="input-field" name="userEmail" type="email" placeholder="Enter Email">
+       </div>
+
+       <div class="entry-field">
+        <label for="userPhNum">Phone Number</label>
+        <input formControlName="phoneNumber" class="input-field" name="userPhNum" type="number" placeholder="Enter Phone Number">
+       </div>
+
+       <div class="entry-field">
+        <label for="userCity">City</label>
+        <input formControlName="city" class="input-field" name="userCity" type="string" placeholder="Enter City">
+       </div>
+
+       <button mat-stroked-button class="submit-btn" type="submit">Submit</button>
+    </form>
+</div>
+    

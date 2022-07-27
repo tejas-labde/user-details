@@ -1,0 +1,39 @@
+.form-container{
+    height:100vh;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    background-color: #2cc7b7;
+
+
+    .details-form{
+        padding:0.5rem;
+        border:thin solid;
+        display:flex;
+        flex-direction: column;
+        justify-content:center;
+        
+        .display-text{
+            text-align: center;
+        }
+       
+    }
+    .entry-field{
+        display:flex;
+        flex-direction:column;
+        padding:1rem;
+        
+        .input-field{
+            padding:1rem;
+            border:none;
+            color:#eee;
+            background-color: #114157;
+            border-radius:4px;
+        }
+    }
+
+    .submit-btn{
+        background-color: #2575c4;
+        color:#eee;
+    }
+}
