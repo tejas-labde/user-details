@@ -1,12 +1,35 @@
-.navigation-container{
-    color:#eee;
-    background-color: #114157;
-    display:flex;
-    
-    .navigation-option{
-        padding:0.5rem;
-        cursor: pointer;
+.navigation-container {
+    color: #eee;
+    background-color: #00996F;
+    display: flex;
+    justify-content: space-between;
+
+    .home-icon {
+        padding: 0.25rem;
     }
 
-    
+    .routes-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .options-container{
+        display:flex;
+        flex-direction: row;
+    }
+
+    .navigation-option {
+        padding: 0.5rem;
+        cursor: pointer;
+        margin: 0;
+        font-size: 1rem;
+    }
+
+    .active-link {
+        background-color: #2575c4;
+    }
+
+
+
+
 }

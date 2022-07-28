@@ -1,7 +1,7 @@
+import { DataService } from './../data.service';
 import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import { userDetails } from '../mockbackend';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-input-form',
@@ -10,39 +10,34 @@ import { userDetails } from '../mockbackend';
 })
 export class InputFormComponent implements OnInit {
 
-  constructor(private fb:FormBuilder,private router:Router) { }
+  constructor(private fb:FormBuilder,private router: Router, private dataService: DataService) { }
 
-  // detailsForm=this.fb.group({
-  //   name: new FormControl('', Validators.required),
-  //   email: new FormControl('',[Validators.required,Validators.email]),
-  //   city:new FormControl('',[Validators.required]),
-  //   phoneNumber: new FormControl(0,[Validators.required,Validators.minLength(10)]),
-  // })
-
-  detailsForm=new FormGroup({
-    name:new FormControl(),
-    email:new FormControl(),
-    phoneNumber:new FormControl(),
-    city:new FormControl()
-  })
+  detailsForm!: FormGroup;
+  emailPattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$";
 
   ngOnInit(): void {
-    this.setValue();
+    this.detailsForm = new FormGroup({
+      name: new FormControl(),
+      email: new FormControl(),
+      phoneNumber: new FormControl(),
+      city: new FormControl()
+    })
+    this.setFormValue();
   }
 
-  submitDetails(formDetails:FormGroup){
-      userDetails.push(formDetails.value);
-      this.router.navigate(['details']);
+  setFormValue() {
+    this.detailsForm.patchValue(this.dataService.getData() || '');
+    this.detailsForm.controls['name'].setValidators(Validators.required);
+    this.detailsForm.controls['email'].setValidators([Validators.required, Validators.email]);
+    this.detailsForm.controls['phoneNumber'].setValidators([Validators.required, Validators.minLength(10)]);
+    this.detailsForm.controls['city'].setValidators(Validators.required);
   }
 
-  setValue(){
-    let user={
-      name:'',
-      email:'',
-      phoneNumber:0,
-      city:''
-    }
-    this.detailsForm.setValue(user);
+  submitDetails(formDetails: FormGroup) {
+  
+    this.dataService.updateData(formDetails.value);
+    this.router.navigate(['details']);
   }
+
 
 }

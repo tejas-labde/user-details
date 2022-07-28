@@ -1,3 +1,4 @@
+import { DataService } from './../data.service';
 import { Router } from '@angular/router';
 import { IusersDetails } from './../app-types';
 import { Component, OnInit } from '@angular/core';
@@ -11,32 +12,33 @@ import { userDetails } from '../mockbackend';
 })
 export class DetailsTableComponent implements OnInit {
 
-  constructor(private router:Router) { }
-  myDataArray!:MatTableDataSource<any>;
-  columnsToDisplay=['name','email','phoneNumber','city','editBtnColumn','deleteBtnColumn'];
+  constructor(private router: Router,private dataService:DataService) { }
+  myDataArray!: MatTableDataSource<any>;
+  columnsToDisplay = ['name', 'email', 'phoneNumber', 'city', 'editBtnColumn', 'deleteBtnColumn'];
 
   ngOnInit(): void { 
+    this.getTableData();
+    localStorage.getItem('details');
+  }
+
+  getTableData() {
+    let details = localStorage.getItem('details') || '';
+    this.myDataArray = new MatTableDataSource(JSON.parse(details));
+  
+  }
+
+  onEditClick(userIndex:number) {
     
-    localStorage.setItem('details',JSON.stringify(userDetails));
-    this.getTableData(); }
-  
-  getTableData(){
-    let details=localStorage.getItem('details') || '';
-    this.myDataArray=new MatTableDataSource(JSON.parse(details));
-  }
-  
-  onEditClick(user:IusersDetails){
-      console.log(user);
-
-      this.router.navigate(['form']);
+    this.dataService.setData(userIndex);
+    this.router.navigate(['form']);
   }
 
-  onDeleteClick(position:number){
-    userDetails.splice(position,1);
+  onDeleteClick(position: number) {
+    this.dataService.deleteUser(position);
     this.getTableData();
   }
 
 
-  
+
 
 }

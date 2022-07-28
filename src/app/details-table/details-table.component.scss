@@ -1,20 +1,21 @@
-.details-table{
-    width:100%;
+.details-table {
+    width: 100%;
+    text-align: center;
+    height:100vh;
 
-        .display-col {
-            border: thin solid #fff;
-            text-align: center;
-        }
-    
-        .edit-btn{
-            
-            background-color: rgba(yellow,0.4);
-        }
+    .display-col {
+        border: thin solid #fff;
+        text-align: center;
+    }
 
-        .delete-btn{
-            color:white;
-            background-color: rgba(red,0.6);
-        }
-    
+    .edit-btn {
+
+        background-color: rgba(yellow, 0.4);
+    }
+
+    .delete-btn {
+        color: white;
+        background-color: rgba(red, 0.6);
+    }
+
 }
-

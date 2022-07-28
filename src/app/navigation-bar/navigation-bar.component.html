@@ -1,4 +1,18 @@
 <div class="navigation-container">
-    <p class="navigation-option" [routerLink]="['/form']">New User</p>
-    <p class="navigation-option" [routerLink]="['/details']">Users details</p>
+    <div class="options-container">
+        <mat-icon class="home-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="home"
+    [routerLink]="['/form']" routerLinkActive="active-link"></mat-icon>
+    
+    <form [formGroup]="searchValue" (ngSubmit)="onSearch(searchValue)">
+        <input matInput type="text" formControlName="search" >
+        <button mat-button type="submit">Search</button>
+    </form>
+       
+    </div>
+    
+    <div class="routes-container">
+        <p class="navigation-option" [routerLink]="['/form']" routerLinkActive="active-link">New User</p>
+        <p class="navigation-option" [routerLink]="['/details']" routerLinkActive="active-link">Users details</p>
+    </div>
+   
 </div>

@@ -1,39 +1,58 @@
-.form-container{
-    height:100vh;
-    display:flex;
-    align-items: center;
-    justify-content:center;
-    background-color: #2cc7b7;
+.form-page{
+    display:grid;
+    grid-template-columns: 3fr 1fr;
 
+    .image-container{
+        background-image: url('../../assets/pic1.jpg');
+        background-size: cover;
+    }
 
-    .details-form{
-        padding:0.5rem;
-        border:thin solid;
+    .form-container{
+        height:100vh;
         display:flex;
-        flex-direction: column;
+        align-items: center;
         justify-content:center;
-        
-        .display-text{
-            text-align: center;
-        }
-       
-    }
-    .entry-field{
-        display:flex;
-        flex-direction:column;
-        padding:1rem;
-        
-        .input-field{
-            padding:1rem;
-            border:none;
-            color:#eee;
-            background-color: #114157;
-            border-radius:4px;
-        }
-    }
+        background-color: #00D2A3;
+    
+    
+        .details-form{
+            padding:0.25rem;
+           
+            display:flex;
+            flex-direction: column;
+            justify-content:center;
+            
+            .display-text{
+                text-align: center;
+            }
 
-    .submit-btn{
-        background-color: #2575c4;
-        color:#eee;
+            span{
+                
+                color:red;
+            }
+           
+        }
+        .entry-field{
+            display:flex;
+            flex-direction:column;
+            padding:1rem;
+            
+            .input-field{
+                padding:1rem;
+                border:none;
+                color:black;
+                background-color: #eee;
+                border-radius:4px;
+            }
+        }
+    
+        .submit-btn{
+            background-color: #2575c4;
+            color:#eee;
+        }
+
+        
     }
 }
+
+

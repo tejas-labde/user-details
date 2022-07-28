@@ -1,28 +1,40 @@
+<div class="form-page">
+    <div class="image-container"></div>
+    <div class="form-container">
+        <form [formGroup]="detailsForm" class="details-form" (ngSubmit)="submitDetails(detailsForm)">
 
-<div class="form-container">
-    <form [formGroup]="detailsForm" class="details-form"  (ngSubmit)="submitDetails(detailsForm)">
-        <h4 class="display-text">Please enter your details</h4>
-        <div class="entry-field">
-            <label for="userName">Name</label>
-            <input formControlName="name" class="input-field" name="userName" type="text" placeholder="Enter Name">
-        </div>
+            <div class="entry-field">
+                <label for="userName">Name</label>
+                <span *ngIf="detailsForm.get('name')!.hasError('required')">*Name is required</span>
+                <input formControlName="name" class="input-field" name="userName" type="text" placeholder="Enter Name">
+            </div>
 
-       <div class="entry-field">
-        <label for="userEmail">Email</label>
-        <input formControlName="email" class="input-field" name="userEmail" type="email" placeholder="Enter Email">
-       </div>
+            <div class="entry-field">
+                <label for="userEmail">Email</label>
+                <span
+                    *ngIf="detailsForm.get('email')!.hasError('required') || detailsForm.get('email')!.hasError('email')">*Email
+                    is required</span>
+                <input formControlName="email" class="input-field" name="userEmail" type="email"
+                    placeholder="Enter Email">
+            </div>
 
-       <div class="entry-field">
-        <label for="userPhNum">Phone Number</label>
-        <input formControlName="phoneNumber" class="input-field" name="userPhNum" type="number" placeholder="Enter Phone Number">
-       </div>
+            <div class="entry-field">
+                <label for="userPhNum">Phone Number</label>
+                <span
+                    *ngIf="detailsForm.get('phoneNumber')!.hasError('required') || detailsForm.get('phoneNumber')!.hasError('minLength')">*Phone
+                    Number is required</span>
+                <input formControlName="phoneNumber" class="input-field" name="userPhNum" type="number"
+                    placeholder="Enter Phone Number" >
+            </div>
 
-       <div class="entry-field">
-        <label for="userCity">City</label>
-        <input formControlName="city" class="input-field" name="userCity" type="string" placeholder="Enter City">
-       </div>
+            <div class="entry-field">
+                <label for="userCity">City</label>
+                <span *ngIf="detailsForm.get('city')!.hasError('required')">*City is required</span>
+                <input formControlName="city" class="input-field" name="userCity" type="text" placeholder="Enter City">
+            </div>
 
-       <button mat-stroked-button class="submit-btn" type="submit">Submit</button>
-    </form>
+            <button mat-stroked-button class="submit-btn" type="submit" [disabled]="detailsForm.invalid">Submit</button>
+        </form>
+    </div>
+
 </div>
-    

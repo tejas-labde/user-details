@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InputFormComponent } from './input-form/input-form.component';
 import { DetailsTableComponent } from './details-table/details-table.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {  ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input'
 
 @NgModule({
   declarations: [
@@ -19,10 +21,12 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
   ],
   imports: [
     BrowserModule,
+    MatIconModule,
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatInputModule,
     MatTableModule
     
   ],
